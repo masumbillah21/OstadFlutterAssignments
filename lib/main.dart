@@ -11,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      title: 'Assignment 06',
+      title: 'Live Test 06',
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
     );
   }
@@ -19,12 +20,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
-
-  mySnackBar(context, message) {
-    ScaffoldMessenger.of(context).hideCurrentSnackBar();
-    return ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
-  }
 
   final TextStyle myTextStyle = const TextStyle(
     fontSize: 18,
@@ -36,10 +31,42 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        title: const Text("Photo Gallery"),
+        title: const Text("My Shopping List"),
         centerTitle: true,
+        actions: [Icon(Icons.shopping_cart)],
       ),
-      body: Placeholder(),
+      body: ListView(
+        children: const [
+          ListTile(
+            leading: Icon(Icons.apple),
+            title: Text("Apple"),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text("Orange"),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text("Banana"),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text("Pineapple"),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text("Jack Fruit"),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text("Mango"),
+          ),
+          ListTile(
+            leading: Icon(Icons.image),
+            title: Text("Litchi"),
+          ),
+        ],
+      ),
     );
   }
 }
