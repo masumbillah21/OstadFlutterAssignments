@@ -21,11 +21,6 @@ class MyApp extends StatelessWidget {
 class MyHomePage extends StatelessWidget {
   const MyHomePage({super.key});
 
-  final TextStyle myTextStyle = const TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.w700,
-  );
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,7 +28,7 @@ class MyHomePage extends StatelessWidget {
       appBar: AppBar(
         title: const Text("My Shopping List"),
         centerTitle: true,
-        actions: [Icon(Icons.shopping_cart)],
+        actions: const [Icon(Icons.shopping_cart)],
       ),
       body: ListView(
         children: const [
