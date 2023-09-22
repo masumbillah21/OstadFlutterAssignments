@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Assignment 06',
+      title: 'Assignment 07',
       home: const ProductList(),
       theme: ThemeData(
           scrollbarTheme: ScrollbarThemeData(
