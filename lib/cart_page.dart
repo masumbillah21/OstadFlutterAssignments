@@ -7,8 +7,6 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Products> cartCount =
-        totalProduct.where((item) => item.qyt == 5).toList();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Cart'),
@@ -16,7 +14,7 @@ class CartPage extends StatelessWidget {
       ),
       body: Center(
         child: Text(
-          "Total Products: ${cartCount.length}",
+          "Total Products: ${totalProduct.length}",
           style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,

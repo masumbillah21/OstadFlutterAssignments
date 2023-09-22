@@ -48,6 +48,8 @@ class _ProductListState extends State<ProductList> {
 
   @override
   Widget build(BuildContext context) {
+    List<Products> cartCount =
+        _products.where((item) => item.qyt == 5).toList();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Product List'),
@@ -59,7 +61,7 @@ class _ProductListState extends State<ProductList> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => CartPage(totalProduct: _products),
+              builder: (context) => CartPage(totalProduct: cartCount),
             ),
           );
         },
