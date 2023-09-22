@@ -19,10 +19,6 @@ class _ProductListState extends State<ProductList> {
     Products(productName: 'Showcase', price: 15000.0),
     Products(productName: 'Refrigerator', price: 50000.0),
     Products(productName: 'Bookshelf', price: 3000.0),
-    Products(productName: 'Computer', price: 31000.0),
-    Products(productName: 'Laptop', price: 12000.0),
-    Products(productName: 'Mobile', price: 11000.0),
-    Products(productName: 'Tablet', price: 3000.0),
   ];
 
   Future<void> _showMyDialog(productName, productQyt) async {
@@ -56,7 +52,6 @@ class _ProductListState extends State<ProductList> {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.deepPurple,
         onPressed: () {
           Navigator.push(
             context,
