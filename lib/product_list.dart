@@ -54,6 +54,7 @@ class _ProductListState extends State<ProductList> {
         centerTitle: true,
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.deepPurple,
         onPressed: () {
           Navigator.push(
             context,
