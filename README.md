@@ -1,14 +1,18 @@
-# Assignment 06 Description
-Create a Flutter app with the following features:
+# Assignment 07 Description
+Create a Flutter
+application that consists of the following:
 
-- An app bar titled "Photo Gallery"
-- A scrollable view with a welcome message.
-- A text field.
-- A grid of at least 6 network images with captions.
-- Each image triggers a Snackbar when clicked, you can show any text on the message.
-- Below the grid, a list of three sample photos with titles and subtitles.
-- An upload button that shows the message “Photos Uploaded Successfully!” in a Snackbar.
-- Use any font style or icon size that makes the UI visually appealing.
+- A stateful widget called ProductList that displays a list of products.
+- Each product should have a name, price, and a "Buy Now" button.
+- Implement a counter for each product that increments by 1 every time the "Buy Now" button is pressed.
+- When the counter for a product reaches 5, show a dialog box with the message "Congratulations! You've bought 5 {Product Name}!" Replace {Product Name} with the actual name of the product.
+- Use the ListView widget to display the product list.
+- Implement navigation to a new page called CartPage when the user presses a "Go to Cart" button.
+- The CartPage should display the total number of products the user has bought.
 
 # Screenshot
-![assignment06.png](Screenshot%2Fassignment06.png)
+![product_list.png](Screenshot%2Fproduct_list.png)
+
+![alert.png](Screenshot%2Falert.png)
+
+![cart_page.png](Screenshot%2Fcart_page.png)
