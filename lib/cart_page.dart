@@ -9,7 +9,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     int total = 0;
     for (int i = 0; i < totalProduct.length; i++) {
-      if (totalProduct[i].qyt == 5) {
+      if (totalProduct[i].qyt >= 5) {
         total++;
       }
     }
