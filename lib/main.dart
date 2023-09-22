@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/product_page.dart';
+import 'package:flutter_projects/product_list.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,8 +12,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Assignment 06',
-      home: ProductPage(),
+      home: const ProductList(),
       theme: ThemeData(
           scrollbarTheme: ScrollbarThemeData(
         thumbColor: MaterialStateProperty.all(Colors.blue),
