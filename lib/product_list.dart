@@ -94,9 +94,11 @@ class _ProductListState extends State<ProductList> {
                       Text("Counts: ${_products[index].qyt}"),
                       ElevatedButton(
                         onPressed: () {
-                          setState(() {
-                            _products[index].qyt++;
-                          });
+                          if (_products[index].qyt < 5) {
+                            setState(() {
+                              _products[index].qyt++;
+                            });
+                          }
                           if (_products[index].qyt == 5) {
                             _showMyDialog(_products[index].productName,
                                 _products[index].qyt);
