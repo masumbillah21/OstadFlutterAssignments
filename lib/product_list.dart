@@ -45,7 +45,7 @@ class _ProductListState extends State<ProductList> {
   @override
   Widget build(BuildContext context) {
     List<Products> cartCount =
-        _products.where((item) => item.qyt == 5).toList();
+        _products.where((item) => item.qyt != 0).toList();
     return Scaffold(
       appBar: AppBar(
         title: const Text('Product List'),
