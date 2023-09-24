@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/product_list.dart';
+import 'package:flutter_projects/HomeScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +11,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Assignment 07',
-      home: const ProductList(),
-      theme: ThemeData(
-          scrollbarTheme: ScrollbarThemeData(
-        thumbColor: MaterialStateProperty.all(Colors.blue),
-      )),
+      title: 'Counter App',
+      home: HomeScreen(),
     );
   }
 }
