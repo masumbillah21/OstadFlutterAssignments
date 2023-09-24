@@ -84,6 +84,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         counter--;
                       });
                     }
+                    if (counter >= 5) {
+                      _showMyDialog(counter);
+                    }
                   },
                   child: const Text(
                     "-",
