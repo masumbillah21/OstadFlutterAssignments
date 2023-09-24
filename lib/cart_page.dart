@@ -9,7 +9,7 @@ class CartPage extends StatelessWidget {
   Widget build(BuildContext context) {
     double total = 0;
     for (int i = 0; i < totalProduct.length; i++) {
-      total += totalProduct[i].price;
+      total += (totalProduct[i].price * totalProduct[i].qyt);
     }
     return Scaffold(
       appBar: AppBar(
@@ -23,9 +23,10 @@ class CartPage extends StatelessWidget {
             child: ListView.separated(
               itemBuilder: (context, index) => ListTile(
                 title: Text(totalProduct[index].productName),
-                subtitle:
-                    Text("\$${totalProduct[index].price.toStringAsFixed(2)}"),
-                trailing: Text("Quantity: ${totalProduct[index].qyt}"),
+                subtitle: Text(
+                    "Price: \$${totalProduct[index].price.toStringAsFixed(2)} | Qyt: ${totalProduct[index].qyt}"),
+                trailing: Text(
+                    "\$${(totalProduct[index].price * totalProduct[index].qyt).toStringAsFixed(2)}"),
               ),
               itemCount: totalProduct.length,
               separatorBuilder: (context, _) => const Divider(
