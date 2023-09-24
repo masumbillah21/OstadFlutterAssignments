@@ -8,4 +8,6 @@ Tapping the "-" button should decrease the count by 1, but the count should not 
 If the count reaches 5 or more, a dialog should appear with the message: "Button pressed {count} times."
 
 # Screenshot
-![conter_screen.png](Screenshot%2Fconter_screen.png)
+![counter.png](Screenshot%2Fcounter.png)
+
+![dialog.png](Screenshot%2Fdialog.png)
