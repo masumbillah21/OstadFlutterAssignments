@@ -7,3 +7,5 @@ Use any image or icon as placeholders.
 ![Portrait.png](Screenshot%2FPortrait.png)
 
 ![landscape.png](Screenshot%2Flandscape.png)
+
+![assignment08.gif](Screenshot%2Fassignment08.gif)
