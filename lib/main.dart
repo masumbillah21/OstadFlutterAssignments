@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Assignment 08',
+      title: 'Live Test 08',
       home: HomeScreen(),
     );
   }
