@@ -3,7 +3,8 @@ Create a dummy image feed that adjusts its layout based on the device's orientat
 
 The feed should display multiple thumbnail images in list format for portrait and grid format in landscape.
 
-Use a Card or Container type widget to hold the thumbnail image (Can use image/images of your choice, they will be 150x150 in size or use this image -> “https://via.placeholder.com/150”)
+Use a Card or Container type widget to hold the thumbnail image (Can use image/images of your choice, 
+they will be 150x150 in size or use this image -> “https://via.placeholder.com/150”)
 
 Show at least 10 items on screen.
 
