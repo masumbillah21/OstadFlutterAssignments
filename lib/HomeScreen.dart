@@ -75,13 +75,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: ListView.builder(
                     itemCount: _products.length,
                     itemBuilder: (context, index) => Card(
+                      margin: const EdgeInsets.symmetric(vertical: 10),
                       elevation: 1,
                       child: Row(
                         children: [
                           Image.asset(
                             _products[index].image,
                             width: 104,
-                            height: 105,
+                            height: 104,
                             fit: BoxFit.fill,
                           ),
                           Expanded(
@@ -92,7 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Padding(
-                                      padding: const EdgeInsets.all(16.0),
+                                      padding: const EdgeInsets.all(8.0),
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.start,
@@ -153,8 +154,6 @@ class _HomeScreenState extends State<HomeScreen> {
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.start,
                                       children: [
                                         ElevatedButton(
                                           onPressed: () {

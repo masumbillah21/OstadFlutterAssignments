@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
           ),
           bodyMedium: TextStyle(
             color: Colors.black,
-            fontSize: 18,
+            fontSize: 16,
           ),
           headlineLarge: TextStyle(
             fontWeight: FontWeight.bold,
@@ -29,15 +29,16 @@ class MyApp extends StatelessWidget {
           headlineMedium: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
-            fontSize: 18,
+            fontSize: 17,
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Colors.white,
-            foregroundColor: Colors.black,
-            shape: const CircleBorder(),
-          ),
+              backgroundColor: Colors.white,
+              foregroundColor: Colors.black,
+              shape: const CircleBorder(),
+              padding: EdgeInsets.all(10.0),
+              minimumSize: Size(30, 30)),
         ),
       ),
       home: const HomeScreen(),
