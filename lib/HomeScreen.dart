@@ -130,6 +130,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ),
                                     ),
                                     PopupMenuButton<SampleItem>(
+                                      color: Colors.grey,
                                       initialValue: selectedMenu,
                                       // Callback that sets the selected popup menu item.
                                       onSelected: (SampleItem item) {
