@@ -54,17 +54,12 @@ class _HomeScreenState extends State<HomeScreen> {
               children: [
                 const TextField(
                   decoration: InputDecoration(
-                    hintText: "Search...",
                     suffixIcon: Icon(
                       Icons.search,
                       color: Colors.black,
                     ),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(40),
-                      ),
-                    ),
-                    focusedBorder: OutlineInputBorder(),
+                    border: InputBorder.none,
+                    focusedBorder: InputBorder.none,
                   ),
                 ),
                 Text(
