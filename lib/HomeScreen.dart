@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_projects/product.dart';
 
-enum SampleItem { itemOne, itemTwo, itemThree }
+enum SampleItem { itemOne }
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,7 +35,14 @@ class _HomeScreenState extends State<HomeScreen> {
       price: 43,
     ),
   ];
-  int totalAmount = 0;
+  int _totalAmount = 0;
+  @override
+  void initState() {
+    _totalAmount = _products
+        .map((e) => e.price)
+        .reduce((value, element) => value + element);
+    super.initState();
+  }
 
   void _showSnackBar(String msg) {
     ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(msg)));
@@ -139,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           <PopupMenuEntry<SampleItem>>[
                                         const PopupMenuItem<SampleItem>(
                                           value: SampleItem.itemOne,
-                                          child: Text('Item 1'),
+                                          child: Text('Delete'),
                                         ),
                                       ],
                                     ),
@@ -160,10 +167,10 @@ class _HomeScreenState extends State<HomeScreen> {
                                       children: [
                                         ElevatedButton(
                                           onPressed: () {
-                                            if (_products[index].quantity > 0) {
+                                            if (_products[index].quantity > 1) {
                                               setState(() {
                                                 _products[index].quantity--;
-                                                totalAmount -=
+                                                _totalAmount -=
                                                     _products[index].price;
                                               });
                                             }
@@ -191,7 +198,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                           onPressed: () {
                                             setState(() {
                                               _products[index].quantity++;
-                                              totalAmount +=
+                                              _totalAmount +=
                                                   _products[index].price;
                                             });
                                           },
@@ -239,7 +246,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          "$totalAmount\$",
+                          "$_totalAmount\$",
                           style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
@@ -255,7 +262,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       height: 48,
                       child: ElevatedButton(
                         onPressed: () {
-                          if (totalAmount == 0) {
+                          if (_totalAmount == 0) {
                             _showSnackBar("You need to add product!!");
                           } else {
                             _showSnackBar("Congratulation!!");

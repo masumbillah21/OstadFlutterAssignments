@@ -3,7 +3,7 @@ class Product {
   String name;
   String color;
   String size;
-  int quantity = 0;
+  int quantity = 1;
   int price;
 
   Product(
