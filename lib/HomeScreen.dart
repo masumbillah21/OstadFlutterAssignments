@@ -60,7 +60,6 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: Wrap(
-          runSpacing: -10.0,
           children: List.generate(
             _buttonLabels.length,
             (index) => _buildButton(index),
