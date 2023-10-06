@@ -1,14 +1,11 @@
-# Assignment 9
+# Live Text 9
 ## Requirement:
-On pressing the + and - icons:
-The no of item will increase/decrease
-Total amount will be the calculated according to the number of items and unit price
-On pressing CHECK OUT a snackbar will appear with a congratulating message.
-Don’t need to implement any other click events.
-The design must be responsive.
+Design the following screen. 
+On tapping on a button the colour of that button will be changed and reset the previous selected one. 
+Also show a Snackbar on each button press with the selected Size text.
 
 
 # Screenshot
-![my_bag.png](Screenshot%2Fmy_bag.png)
+![size_selector.png](Screenshot%2Fsize_selector.png)
 
-![my_bag.gif](Screenshot%2Fmy_bag.gif)
+![size_selector.gif](Screenshot%2Fsize_selector.gif)
