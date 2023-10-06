@@ -9,6 +9,6 @@ The design must be responsive.
 
 
 # Screenshot
-![assignment09.png](Screenshot%2Fassignment09.png)
+![my_bag.png](Screenshot%2Fmy_bag.png)
 
-![assignment09.gif](Screenshot%2Fassignment09.gif)
+![my_bag.gif](Screenshot%2Fmy_bag.gif)
