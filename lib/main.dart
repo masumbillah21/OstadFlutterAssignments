@@ -9,28 +9,30 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Assignment 09',
       theme: ThemeData(
-        textTheme: const TextTheme(
+        textTheme: TextTheme(
           bodySmall: TextStyle(
             color: Colors.black54,
-            fontSize: 15,
+            fontSize: width < 300 ? 10 : 15,
           ),
           bodyMedium: TextStyle(
             color: Colors.black,
-            fontSize: 16,
+            fontSize: width < 300 ? 13 : 16,
           ),
           headlineLarge: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
-            fontSize: 35,
+            fontSize: width < 300 ? 20 : 35,
           ),
           headlineMedium: TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.black,
-            fontSize: 17,
+            fontSize: width < 300 ? 13 : 17,
           ),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
@@ -38,8 +40,8 @@ class MyApp extends StatelessWidget {
               backgroundColor: Colors.white,
               foregroundColor: Colors.black,
               shape: const CircleBorder(),
-              padding: EdgeInsets.all(10.0),
-              minimumSize: Size(30, 30)),
+              padding: const EdgeInsets.all(10.0),
+              minimumSize: const Size(30, 30)),
         ),
       ),
       home: const HomeScreen(),

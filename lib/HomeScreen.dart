@@ -43,87 +43,88 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.sizeOf(context).width;
+
     return Scaffold(
       backgroundColor: const Color(0xFFF9F9F9),
       body: SafeArea(
-        child: Scrollbar(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TextField(
-                  decoration: InputDecoration(
-                    suffixIcon: Icon(
-                      Icons.search,
-                      color: Colors.black,
-                    ),
-                    border: InputBorder.none,
-                    focusedBorder: InputBorder.none,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const TextField(
+                decoration: InputDecoration(
+                  suffixIcon: Icon(
+                    Icons.search,
+                    color: Colors.black,
                   ),
+                  border: InputBorder.none,
+                  focusedBorder: InputBorder.none,
                 ),
-                Text(
-                  "My Bag",
-                  style: Theme.of(context).textTheme.headlineLarge,
-                ),
-                Expanded(
-                  child: ListView.builder(
-                    itemCount: _products.length,
-                    itemBuilder: (context, index) => Card(
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      elevation: 1,
-                      child: Row(
-                        children: [
-                          Image.asset(
-                            _products[index].image,
-                            width: 104,
-                            height: 104,
-                            fit: BoxFit.fill,
-                          ),
-                          Expanded(
+              ),
+              Text(
+                "My Bag",
+                style: Theme.of(context).textTheme.headlineLarge,
+              ),
+              Expanded(
+                child: ListView.builder(
+                  itemCount: _products.length,
+                  itemBuilder: (context, index) => Card(
+                    margin: const EdgeInsets.symmetric(vertical: 10),
+                    elevation: 1,
+                    child: Row(
+                      children: [
+                        Image.asset(
+                          _products[index].image,
+                          width: width < 300 ? 70 : 115,
+                          height: width < 300 ? 70 : 115,
+                          fit: BoxFit.fill,
+                        ),
+                        Expanded(
+                          child: Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Column(
                               children: [
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            _products[index].name,
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          _products[index].name,
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineMedium,
+                                        ),
+                                        RichText(
+                                          text: TextSpan(
+                                            text: 'Color: ',
                                             style: Theme.of(context)
                                                 .textTheme
-                                                .headlineMedium,
-                                          ),
-                                          RichText(
-                                            text: TextSpan(
-                                              text: 'Color: ',
-                                              style: Theme.of(context)
-                                                  .textTheme
-                                                  .bodySmall,
-                                              children: <TextSpan>[
-                                                TextSpan(
-                                                  text: _products[index].color,
-                                                  style: const TextStyle(
-                                                    color: Colors.black,
-                                                  ),
+                                                .bodySmall,
+                                            children: <TextSpan>[
+                                              TextSpan(
+                                                text: _products[index].color,
+                                                style: const TextStyle(
+                                                  color: Colors.black,
                                                 ),
-                                                const TextSpan(text: ' Size: '),
-                                                TextSpan(
-                                                  text: _products[index].size,
-                                                  style: const TextStyle(
-                                                    color: Colors.black,
-                                                  ),
+                                              ),
+                                              const TextSpan(text: ' Size: '),
+                                              TextSpan(
+                                                text: _products[index].size,
+                                                style: const TextStyle(
+                                                  color: Colors.black,
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
-                                        ],
-                                      ),
+                                        ),
+                                      ],
                                     ),
                                     PopupMenuButton<SampleItem>(
                                       color: Colors.grey,
@@ -143,6 +144,13 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                   ],
+                                ),
+                                SizedBox(
+                                  height: width < 300
+                                      ? 0
+                                      : width > 700
+                                          ? 25
+                                          : 15,
                                 ),
                                 Row(
                                   mainAxisAlignment:
@@ -167,7 +175,18 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 .bodyMedium,
                                           ),
                                         ),
-                                        Text("${_products[index].quantity}"),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
+                                        Text(
+                                          "${_products[index].quantity}",
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .bodyMedium,
+                                        ),
+                                        const SizedBox(
+                                          width: 10,
+                                        ),
                                         ElevatedButton(
                                           onPressed: () {
                                             setState(() {
@@ -186,21 +205,29 @@ class _HomeScreenState extends State<HomeScreen> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(16.0),
-                                      child:
-                                          Text("${_products[index].price}\$"),
+                                      padding: EdgeInsets.only(
+                                          right: width < 300 ? 10 : 16),
+                                      child: Text(
+                                        "${_products[index].price}\$",
+                                        style: TextStyle(
+                                          fontSize: width < 300 ? 12 : 15,
+                                        ),
+                                      ),
                                     )
                                   ],
                                 )
                               ],
                             ),
-                          )
-                        ],
-                      ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
                 ),
-                Column(
+              ),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Column(
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -247,9 +274,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                   ],
-                )
-              ],
-            ),
+                ),
+              )
+            ],
           ),
         ),
       ),
