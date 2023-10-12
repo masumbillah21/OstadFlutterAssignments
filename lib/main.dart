@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/HomeScreen.dart';
+import 'package:flutter_projects/home_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -9,12 +9,25 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Live Test 09',
-      home: HomeScreen(),
+      title: 'Assignment 10',
+      theme: ThemeData(
+          primarySwatch: Colors.lightBlue,
+          inputDecorationTheme: const InputDecorationTheme(
+            border: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.lightBlue,
+              ),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(
+                color: Colors.lightBlue,
+              ),
+            ),
+            errorBorder: OutlineInputBorder(),
+          )),
+      home: const HomeScreen(),
     );
   }
 }
