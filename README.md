@@ -1,25 +1,21 @@
-# Assignment 10
+# Live Test 10
 ## Requirement:
-Users can add any type of text(String, int, double). Design with ListTile (with title and subtitle).
-When Users long press on any list tile then show an Alertdialog with edit and delete button.
-After that, Users can update the text with the edit button and delete the text by delete button.
-(When pressing the edit button, open a bottom sheet with title and description text of selected list tile item)
+Create the following screen according to the instructions,
 
+At least five items in the list.
+
+On tapping on each item, the item will change color (or mark as selected).
+
+Multiple items can be selected.
+
+On pressing the floating action button positioned at the bottom right, a dialog will appear, displaying the number of selected items.
 
 # Screenshot
+![Image-1.png](Screenshot%2FImage-1.png)
 
-![assignment10.gif](Screenshot%2Fassignment10.gif)
-
-![image-01.png](Screenshot%2Fimage-01.png)
-
-![image02.png](Screenshot%2Fimage02.png)
+![image-2.png](Screenshot%2Fimage-2.png)
 
 ![image-3.png](Screenshot%2Fimage-3.png)
 
-![image04.png](Screenshot%2Fimage04.png)
-
-![image05.png](Screenshot%2Fimage05.png)
-
-![image06.png](Screenshot%2Fimage06.png)
-
+![livetest10.gif](Screenshot%2Flivetest10.gif)
 
