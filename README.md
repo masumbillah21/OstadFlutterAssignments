@@ -15,3 +15,6 @@ https://jsonplaceholder.typicode.com/photos
 
 # Screenshot
 
+![1.png](Screenshot%2F1.png)
+
+![2.png](Screenshot%2F2.png)
