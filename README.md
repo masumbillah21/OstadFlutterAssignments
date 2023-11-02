@@ -1,21 +1,17 @@
-# Live Test 10
+# Assignment 11
+
 ## Requirement:
-Create the following screen according to the instructions,
 
-At least five items in the list.
+Create a Flutter app to fetch and display photos from the following URL:
 
-On tapping on each item, the item will change color (or mark as selected).
+https://jsonplaceholder.typicode.com/photos
 
-Multiple items can be selected.
+### Guideline:
 
-On pressing the floating action button positioned at the bottom right, a dialog will appear, displaying the number of selected items.
+1. Fetch photos using an HTTP GET request from the provided API endpoint.
+2. Display a list of photos with titles and thumbnail images.
+3. On tapping a photo, navigate to a new screen displaying the full-size image, title, and ID.
+4. Implement error handling for API calls.
 
 # Screenshot
-![Image-1.png](Screenshot%2FImage-1.png)
-
-![image-2.png](Screenshot%2Fimage-2.png)
-
-![image-3.png](Screenshot%2Fimage-3.png)
-
-![livetest10.gif](Screenshot%2Flivetest10.gif)
 
