@@ -1,111 +1,64 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:flutter_projects/data/photo.dart';
-import 'package:flutter_projects/screens/photo_details.dart';
-import 'package:http/http.dart';
+import 'package:flutter_projects/data/weather.dart';
+import 'package:flutter_projects/data/weather_data.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  final List<Photo> _photos = [];
-  bool _isLoading = false;
-
-  void _showMessage() {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text("Something went wrong, please try again later."),
-      ),
-    );
-  }
-
-  Future<void> _getPhotos() async {
-    setState(() {
-      _isLoading = true;
-    });
-    try {
-      Uri url = Uri.parse('https://jsonplaceholder.typicode.com/photos');
-      var response = await get(url);
-      if (response.statusCode == 200) {
-        var jsonData = jsonDecode(response.body);
-        for (Map<String, dynamic> photoJson in jsonData) {
-          _photos.add(Photo.fromJson(photoJson));
-        }
-      } else {
-        _showMessage();
-      }
-    } on Exception catch (_) {
-      _showMessage();
-    }
-
-    setState(() {
-      _isLoading = false;
-    });
-  }
-
-  @override
-  void initState() {
-    _getPhotos();
-    super.initState();
+  List<Weather> getData(String responseBody) {
+    final parsed = json.decode(responseBody).cast<Map<String, dynamic>>();
+    return parsed.map<Weather>((json) => Weather.fromJson(json)).toList();
   }
 
   @override
   Widget build(BuildContext context) {
+    final List<Weather> weatherData = getData(weatherJson);
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "Photo Gallery App",
+          "Weather Info App",
         ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              _getPhotos();
-            },
-            icon: const Icon(Icons.refresh),
-          ),
-        ],
       ),
-      body: _isLoading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : ListView.builder(
-              itemCount: _photos.length,
-              shrinkWrap: true,
-              itemBuilder: (context, index) {
-                return Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 8.0),
-                  child: ListTile(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) =>
-                              PhotoDetails(photo: _photos[index]),
-                        ),
-                      );
-                    },
-                    leading: Image.network(
-                      _photos[index].thumbnail,
-                      width: 60,
-                      height: 60,
-                      errorBuilder: (context, _, __) {
-                        return const Icon(
-                          Icons.image,
-                          size: 60,
-                        );
-                      },
-                    ),
-                    title: Text(_photos[index].title),
+      body: ListView.builder(
+        itemCount: weatherData.length,
+        itemBuilder: (context, index) => Card(
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: ListTile(
+              title: Text(
+                "City: ${weatherData[index].city}",
+                style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 20,
+                ),
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(
+                    height: 5,
                   ),
-                );
-              },
+                  Text("Temperature: ${weatherData[index].temperature}°C"),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text("Condition: ${weatherData[index].condition}"),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text("Humidity: ${weatherData[index].humidity}%"),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text("WindSpeed: ${weatherData[index].windSpeed} m/s"),
+                ],
+              ),
             ),
+          ),
+        ),
+      ),
     );
   }
 }
